@@ -2,6 +2,12 @@ import { Request, Response } from 'express'
 import * as lecture from '../services/lecture'
 import { error } from '../libs/bindError'
 
+const list = async (req: Request<any>, res: Response<any>) => {
+    const lectures = await lecture.list()
+
+    return res.status(200).json(lectures);
+}
+
 const create = async (req: Request<any>, res: Response<any>) => {
     try {
         const title = req.body.title
@@ -16,5 +22,6 @@ const create = async (req: Request<any>, res: Response<any>) => {
 }
 
 export {
+    list,
     create
 }

@@ -1,6 +1,11 @@
 import { ILecture } from '../types/ILecture'
 import * as db from '../libs/mysql'
 
+const list = async () => {
+    const lectures = await db.execute('SELECT * from lectures')
+    return lectures.rowns
+}
+
 const create = async (lecture: ILecture) => {
     const createdAt = new Date().toISOString().slice(0, 19).replace('T', ' ')
 
@@ -18,5 +23,6 @@ const create = async (lecture: ILecture) => {
 };
 
 export {
+    list,
     create
 }
