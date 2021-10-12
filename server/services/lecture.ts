@@ -22,6 +22,21 @@ const create = async (lecture: ILecture) => {
     return true;
 };
 
+const update = async (lecture: ILecture) => {
+    if (!lecture.id) {
+        throw new Error('Please provide an id')
+    }
+
+    const lectureFound: any = await db.execute('SELECT * FROM lectures WHERE id=?', [lecture.id])
+    if (lectureFound.rowns.length == 0) {
+        throw new Error('The lecture is not found')
+    }
+
+    await db.execute('UPDATE lectures set title=?, description=? WHERE id=?', [lecture.title, lecture.description, lecture.id])
+    
+    return true
+}
+
 const remove = async (id: number) => {
     if (!id) {
         throw new Error('Please provide an id!')
@@ -38,5 +53,6 @@ const remove = async (id: number) => {
 export {
     list,
     create,
+    update,
     remove
 }

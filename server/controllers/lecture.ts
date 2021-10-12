@@ -21,6 +21,20 @@ const create = async (req: Request<any>, res: Response<any>) => {
     }
 }
 
+const update = async (req: Request<any>, res: Response<any>) => {
+    try {
+        const id = req.body.id
+        const title = req.body.title
+        const description = req.body.description
+
+        await lecture.update({id, title, description})
+
+        res.status(200).send('The lecture is updated sucessfully')
+    } catch (err) {
+        return error(res, err)
+    }
+}
+
 const remove = async (req: Request<any>, res: Response<any>) => {
     try {
         const id: number = req.body.id
@@ -40,5 +54,6 @@ const remove = async (req: Request<any>, res: Response<any>) => {
 export {
     list,
     create,
+    update,
     remove
 }
