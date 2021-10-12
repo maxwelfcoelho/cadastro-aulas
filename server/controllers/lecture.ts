@@ -21,7 +21,24 @@ const create = async (req: Request<any>, res: Response<any>) => {
     }
 }
 
+const remove = async (req: Request<any>, res: Response<any>) => {
+    try {
+        const id: number = req.body.id
+
+        if (!id) {
+            return res.status(400).send('Please, provide an id!')
+        }
+
+        await lecture.remove(id);
+
+        res.status(200).send('Lecture deleted successfully')
+    } catch(err: any) {
+        return error(res, err)
+    }
+}
+
 export {
     list,
-    create
+    create,
+    remove
 }

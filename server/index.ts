@@ -17,6 +17,7 @@ app.post('/login', user.login)
 
 app.get('/lectures', lecture.list)
 app.post('/lecture', lecture.create)
+app.delete('/lecture/:id', lecture.remove)
 
 app.listen(PORT, () => {
   console.log(`⚡️[server]: API rodando em http://localhost:${PORT}`)

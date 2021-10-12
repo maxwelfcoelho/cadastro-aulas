@@ -22,7 +22,21 @@ const create = async (lecture: ILecture) => {
     return true;
 };
 
+const remove = async (id: number) => {
+    if (!id) {
+        throw new Error('Please provide an id!')
+    }
+
+    const lecture: any = await db.execute('SELECT * FROM lectures WHERE id=?', [id])
+    if (lecture.rowns.length === 0) {
+        throw new Error('Lecture is not found!')
+    }
+
+    await db.execute('DELETE FROM lectures WHERE id=?', [id])
+}
+
 export {
     list,
-    create
+    create,
+    remove
 }
