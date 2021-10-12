@@ -2,8 +2,7 @@ import { ILecture } from '../types/ILecture'
 import * as db from '../libs/mysql'
 
 const create = async (lecture: ILecture) => {
-    const date = new Date();
-    const createdAt = `${date.getUTCFullYear()}-${date.getUTCMonth()+1}-${date.getUTCDate()}`
+    const createdAt = new Date().toISOString().slice(0, 19).replace('T', ' ')
 
     if (!lecture.title) {
         throw new Error('Please provide a title!')

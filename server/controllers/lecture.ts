@@ -9,11 +9,11 @@ const create = async (req: Request<any>, res: Response<any>) => {
 
         await lecture.create({title, description})
 
-        res.send('Lectured created successfully');
+        res.status(200).send('Lectured created successfully');
     } catch (err: any) {
         return error(res, err)
     }
-};
+}
 
 export {
     create
