@@ -1,9 +1,9 @@
-import { IUser } from "../types/IUser"
+import { IUser } from '../types/IUser'
 import * as db from '../libs/mysql'
 
 const login = async (user: IUser) => {
     if (!user.email) {
-        throw new Error("Please provide a email!")
+        throw new Error('Please provide a email!')
     }
 
     if (!user.password) {

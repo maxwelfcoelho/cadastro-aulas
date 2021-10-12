@@ -2,7 +2,7 @@ import * as dotenv from 'dotenv'
 
 import express from 'express'
 import cors from 'cors'
-import * as note from './controllers/note'
+import * as lecture from './controllers/lecture'
 import * as user from './controllers/user'
 dotenv.config()
 
@@ -14,11 +14,8 @@ const PORT = 3000
 app.use(express.static('www'))
 
 app.post('/login', user.login)
-// app.get('/notes', note.list)
-// app.get('/notes/:id', note.get)
-// app.post('/notes', note.create)
-// app.put('/notes', note.update)
-// app.delete('/notes', note.remove)
+
+app.post('/lecture', lecture.create)
 
 app.listen(PORT, () => {
   console.log(`⚡️[server]: API rodando em http://localhost:${PORT}`)
