@@ -8,7 +8,7 @@ const login = async (req: Request<any>, res: Response<any>) => {
         const password: string = req.body.password
         await user.login({ email, password })
 
-        res.status(200).send('Logged successfully')
+        res.status(200).json('Logged successfully')
     } catch (err: any) {
         return error(res, err)
     }
