@@ -1,0 +1,52 @@
+<div class="wrapper">
+    <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <h1>Tindin Class Teste Prática</h1>
+        <p>Faça seu login</p>
+
+        <div>
+            <input
+                class="form-control"
+                id="email" 
+                type="text" 
+                placeholder="Digite seu email"
+                name="email"
+                formControlName="email"
+                required
+            >
+
+            <div *ngIf="email.invalid && (email.dirty || email.touched)"
+    class="text-danger">
+
+                <div *ngIf="email.errors?.required">
+                    Email is required.
+                </div>
+
+                <div *ngIf="email.errors?.email">
+                    Please, type a valid email
+                </div>
+
+            </div>
+
+        </div>
+        <div>
+            <input
+                id="password" 
+                type="password" 
+                placeholder="Digite sua senha"
+                name="password"
+                formControlName="password"
+            >
+
+            <div *ngIf="password.invalid && (password.dirty || password.touched)"
+    class="text-danger">
+
+                <div *ngIf="password.errors?.required">
+                    Password is required.
+                </div>
+
+            </div>
+        </div>
+        
+        <button type="submit">Entrar</button>
+    </form>
+</div>

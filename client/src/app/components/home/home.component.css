@@ -1,0 +1,41 @@
+.text-danger {
+    color: red;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    text-align: center;
+}
+
+.form input {
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.form button {
+    padding: 10px;
+    width: 60%;
+    background-color: green;
+    color: #FFF;
+}
+ 
+::-webkit-input-placeholder {
+    text-align: center;
+}
+
+:-moz-placeholder {
+    text-align: center;  
+}
+
+::-moz-placeholder {
+    text-align: center;  
+}
+
+:-ms-input-placeholder {  
+    text-align: center; 
+}
