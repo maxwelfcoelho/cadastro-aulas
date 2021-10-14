@@ -17,4 +17,11 @@ export class LessonsService {
   fetchLessons(): Observable<ILesson[]> {
     return this.http.get<ILesson[]>(`${this.baseUrl}/lectures`);
   }
+
+  createLesson(lecture: ILesson): Observable<any> {
+    return this.http.post(`${this.baseUrl}/lecture`, {
+      title: lecture.title,
+      description: lecture.description,
+    });
+  }
 }
