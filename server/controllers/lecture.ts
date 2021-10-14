@@ -8,6 +8,18 @@ const list = async (req: Request<any>, res: Response<any>) => {
     return res.status(200).json(lectures);
 }
 
+const get = async (req: Request<any>, res: Response<any>) => {
+    try {
+        const id = req.params.id;
+
+        const savedLecture = await lecture.get(id);
+
+        return res.status(200).json(savedLecture)
+    } catch(err: any) {
+        return error(res, err)
+    }
+}
+
 const create = async (req: Request<any>, res: Response<any>) => {
     try {
         const title = req.body.title
@@ -53,6 +65,7 @@ const remove = async (req: Request<any>, res: Response<any>) => {
 
 export {
     list,
+    get,
     create,
     update,
     remove

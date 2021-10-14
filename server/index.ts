@@ -16,6 +16,7 @@ app.use(express.static('www'))
 app.post('/login', user.login)
 
 app.get('/lectures', lecture.list)
+app.get('/lectures/:id', lecture.get)
 app.post('/lecture', lecture.create)
 app.put('/lecture', lecture.update)
 app.delete('/lecture/:id', lecture.remove)

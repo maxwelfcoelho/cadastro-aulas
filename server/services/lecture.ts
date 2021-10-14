@@ -6,6 +6,15 @@ const list = async () => {
     return lectures.rowns
 }
 
+const get = async (id: string) => {
+    const lecture: any = await db.execute('SELECT * FROM lectures WHERE id=?', [id])
+    if (lecture.rowns.length === 0) {
+        throw new Error('Lecture is not found')
+    }
+    
+    return lecture.rowns
+}
+
 const create = async (lecture: ILecture) => {
     const createdAt = new Date().toISOString().slice(0, 19).replace('T', ' ')
 
@@ -52,6 +61,7 @@ const remove = async (id: number) => {
 
 export {
     list,
+    get,
     create,
     update,
     remove
