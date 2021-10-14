@@ -1,0 +1,26 @@
+.lessons-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.lessons-header a {
+    background-color: green;
+    color: #FFF;
+    padding: 10px 40px;
+    text-decoration: none;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.lessons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.lessons .lesson {
+    border: 1px solid #DDD;
+    border-radius: 20px;
+    text-align: center;
+}

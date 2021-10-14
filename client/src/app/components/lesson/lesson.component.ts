@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ILesson } from 'src/app/interfaces/ILesson';
+import { LessonsService } from 'src/app/services/lessons.service';
 
 @Component({
   selector: 'app-lesson',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LessonComponent implements OnInit {
 
-  constructor() { }
+  lessons: ILesson[] = [];
+
+  constructor(
+    private lessonsService: LessonsService
+  ) { }
 
   ngOnInit(): void {
+    this.fetchLessons();
+  }
+
+  fetchLessons(): void {
+    this.lessonsService.fetchLessons().subscribe(
+      (response) => this.lessons = response
+    )
   }
 
 }

@@ -3,19 +3,19 @@
         <div>
             <h3>Tindin Class</h3>
             <p>Listagem de aulas cadastradas</p>
-            <p>5 registros encontrados</p>
+            <p>{{lessons.length}} registros encontrados</p>
         </div>
 
         <div>
-            <a href="#">Nova aula</a>
+            <a href="#" routerLink="/create-lesson">Nova aula</a>
         </div>
     </div>
 
     <section class="lessons">
-        <div>
-            <h3>Aula Teste 1</h3>
-            <p>Descrição da aula teste1</p>
-            <p>Cadastrado em xx/xx/xxxx</p>
+        <div class="lesson" *ngFor="let lesson of lessons">
+            <h3>{{lesson.title}}</h3>
+            <p>{{lesson.description}}</p>
+            <p>Cadastrado em {{lesson.createdAt | date:'dd/MM/yyyy' }}</p>
         </div>
     </section>
 </div>
