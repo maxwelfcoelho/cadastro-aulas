@@ -30,7 +30,14 @@ export class LessonsService {
   }
 
   deleteLesson(id: string): Observable<any> {
-    console.log(`${this.baseUrl}/lecture/${id}`)
     return this.http.delete(`${this.baseUrl}/lecture/${id}`);
+  }
+  
+  updateLesson(lesson: ILesson): Observable<any> {
+    return this.http.put(`${this.baseUrl}/lecture`, {
+      id: lesson.id,
+      title: lesson.title,
+      description: lesson.description
+    });
   }
 }

@@ -1,10 +1,21 @@
 <div class="details">
-    <h2>{{ lesson.title }}</h2>
-    <p>{{ lesson.description }}</p>
+
+    <div *ngIf="!editClicked;else content">
+        <h2>{{ lesson.title }}</h2>
+        <p>{{ lesson.description }}</p>
+    </div>
+
+    <ng-template #content>
+        <form id="form" [formGroup]="form" (ngSubmit)="update()">
+            <input type="text" formControlName="title">
+            <textarea rows="10" type="text" formControlName="description"></textarea>
+            <button type="submit">Update</button>
+        </form>
+    </ng-template>
 
     <div>
         <button class="btn" (click)="cancel()">Cancel</button>
         <button class="btn btn-danger" (click)="delete()">Delete</button>
-        <button class="btn btn-blue">Update</button>
+        <button class="btn btn-blue" (click)="edit()">Edit</button>
     </div>
 </div>
