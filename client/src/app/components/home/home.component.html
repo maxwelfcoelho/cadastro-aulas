@@ -46,6 +46,10 @@
 
             </div>
         </div>
+
+        <div class="error" *ngIf="error">
+            {{ error }}
+        </div>
         
         <button type="submit">Entrar</button>
     </form>

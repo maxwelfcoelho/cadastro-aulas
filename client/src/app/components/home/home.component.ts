@@ -22,11 +22,20 @@ export class HomeComponent implements OnInit {
     password: this.password
   });
 
+  error: any;
+
   constructor(
     private authService: AuthService,
   ) { }
 
   ngOnInit(): void {
+    this.onChanges();
+  }
+
+  onChanges(): void {
+    this.loginForm.valueChanges.subscribe(val => {
+      this.error = '';
+    })
   }
 
   onSubmit(): void {
@@ -35,14 +44,14 @@ export class HomeComponent implements OnInit {
     this.authService.login({email, password})
       .subscribe(
         (response: any) =>  {
+          this.loginForm.reset();
           const url = window.location.origin;
           window.location.href = 'http://localhost:4200/lessons';
         },
         (error) => {
-          console.error(error.error);
+          console.error(error.error.message);
+          this.error = error.error.message;
         }
       );
-
-    this.loginForm.reset();
   }
 }
