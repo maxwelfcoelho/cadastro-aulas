@@ -49,7 +49,7 @@ const update = async (req: Request<any>, res: Response<any>) => {
 
 const remove = async (req: Request<any>, res: Response<any>) => {
     try {
-        const id: number = req.body.id
+        const id: number = req.params.id
 
         if (!id) {
             return res.status(400).send('Please, provide an id!')
@@ -57,7 +57,7 @@ const remove = async (req: Request<any>, res: Response<any>) => {
 
         await lecture.remove(id);
 
-        res.status(200).send('Lecture deleted successfully')
+        res.status(200).json('Lecture deleted successfully')
     } catch(err: any) {
         return error(res, err)
     }
