@@ -41,7 +41,7 @@ const update = async (req: Request<any>, res: Response<any>) => {
 
         await lecture.update({id, title, description})
 
-        res.status(200).send('The lecture is updated sucessfully')
+        res.status(200).json('The lecture is updated sucessfully')
     } catch (err) {
         return error(res, err)
     }
