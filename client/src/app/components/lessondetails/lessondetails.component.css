@@ -1,0 +1,26 @@
+.btn {
+    padding: 7px;
+    border: none;
+}
+
+.btn-danger {
+    background-color: #DB5955;
+    color: #FFF;
+}
+
+.btn-blue {
+    background-color: #037BDA;
+    color: #FFF;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.details button {
+    margin-right: 10px;
+    cursor: pointer;
+}

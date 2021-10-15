@@ -12,10 +12,10 @@
     </div>
 
     <section class="lessons">
-        <div class="lesson" *ngFor="let lesson of lessons">
+        <a class="lesson" [routerLink]="['/lesson-detail', lesson.id]" *ngFor="let lesson of lessons">
             <h3>{{lesson.title}}</h3>
             <p>{{lesson.description}}</p>
             <p>Cadastrado em {{lesson.createdAt | date:'dd/MM/yyyy' }}</p>
-        </div>
+        </a>
     </section>
 </div>

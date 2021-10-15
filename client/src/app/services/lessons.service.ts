@@ -24,4 +24,13 @@ export class LessonsService {
       description: lecture.description,
     });
   }
+
+  getLesson(id: string): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/lectures/${id}`);
+  }
+
+  deleteLesson(id: string): Observable<any> {
+    console.log(`${this.baseUrl}/lecture/${id}`)
+    return this.http.delete(`${this.baseUrl}/lecture/${id}`);
+  }
 }

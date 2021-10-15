@@ -8,13 +8,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LessonComponent } from './components/lesson/lesson.component';
 import { CreatelessonComponent } from './components/createlesson/createlesson.component';
+import { LessondetailsComponent } from './components/lessondetails/lessondetails.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LessonComponent,
-    CreatelessonComponent
+    CreatelessonComponent,
+    LessondetailsComponent
   ],
   imports: [
     BrowserModule,
